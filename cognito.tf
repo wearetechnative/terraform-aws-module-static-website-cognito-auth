@@ -12,6 +12,9 @@ module "cognito-user-pool" {
   domain                 = "${var.cognito_domain_prefix}.${aws_route53_record.website-domain.name}"
   domain_certificate_arn = module.acm.acm_certificate_arn
 
+  admin_create_user_config_email_subject = "You have a new account for ${var.domain}"
+  admin_create_user_config_email_message = "<p>We created a new account for you to access <a href='https://${var.domain}'>${var.domain}</a>.</p><p>Login with username <strong>{username}</strong> and <strong>{####}</strong> as password. After you have logged in for the first time you must set a new password.</p>"
+
   clients = [
     {
       name                         = "${var.name}-client"

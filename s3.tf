@@ -1,12 +1,12 @@
 resource "random_pet" "this" {
-  length = 2
+  length = 1
 }
 
 module "website_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "3.6.0"
 
-  bucket                  = "s3-${random_pet.this.id}"
+  bucket                  = "${var.domain}-${random_pet.this.id}"
   force_destroy           = true
   restrict_public_buckets = true
   ignore_public_acls      = true

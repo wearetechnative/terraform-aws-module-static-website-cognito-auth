@@ -22,6 +22,11 @@ output "s3_bucket_arn" {
   value       = module.website_bucket.s3_bucket_arn
 }
 
+output "cognito_user_pool_id" {
+  description = "ID of the Cognito user pool."
+  value       = module.cognito-user-pool.id
+}
+
 output "user_arn" {
   description = "the arn of the user that was created"
   value = "${aws_iam_user.user.arn}"
