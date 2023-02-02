@@ -15,7 +15,7 @@ Below an example how to use this module ...
 ```hcl
 module "docs_example_website" {
 
-  source = "Technative-B-V/terraform-aws-static-website-cognito-auth/aws"
+  source = "TechNative-B-V/static-website-cognito-auth/aws"
 
   name                            = "website_docs_example"
   domain                          = "subdomain.example.com"
