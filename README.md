@@ -1,8 +1,9 @@
-# Terraform AWS Static Website Cognito Auth ![](https://img.shields.io/github/workflow/status/TechNative-B-V/terraform-aws-module-name/Lint?style=plastic)
+# Terraform AWS Static Website Cognito Auth ![](https://img.shields.io/github/workflow/status/TechNative-B-V/terraform-aws-static-website-cognito-auth/Lint?style=plastic)
 
 <!-- SHIELDS -->
 
-This module implements a s3 website behind a cognito login.
+This module implements a s3 bucket for hosting a static website behind a
+cognito login.
 
 [![](we-are-technative.png)](https://www.technative.nl)
 
@@ -12,15 +13,15 @@ This module implements a s3 website behind a cognito login.
 Below an example how to use this module ...
 
 ```hcl
-module "docs_mcs_technative_eu_website" {
+module "docs_example_website" {
 
   source = "git@github.com:TechNative-B-V/terraform-aws-static-website-cognito-auth.git"
 
-  name                            = "website-docs-mcstechnativeeu"
-  domain                          = "docs-mcs.technative.eu"
-  route53_zone_name               = "technative.eu."
+  name                            = "website_docs_example"
+  domain                          = "subdomain.example.com"
+  route53_zone_name               = "example.com."
 
-  deploy_user_name                = "docsmcstechnativeeudeployuser"
+  deploy_user_name                = "example_deployment_user"
 
   cognito_path_refresh_auth       = "/refreshauth"
   cognito_path_logout             = "/logout"
@@ -33,12 +34,12 @@ module "docs_mcs_technative_eu_website" {
   }
 }
 
-output "docs_mcs_technative_eu_website_deploy_key_id" {
-  value = module.docs_mcs_technative_eu_website.iam_access_key_id
+output "docs_example_website_deploy_key_id" {
+  value = module.docs_example_website.iam_access_key_id
 }
 
-output "docs_mcs_technative_eu_website_deploy_key_secret" {
-  value = module.docs_mcs_technative_eu_website.iam_access_key_secret
+output "docs_example_website_deploy_key_secret" {
+  value = module.docs_example_website.iam_access_key_secret
   sensitive = true
 }
 ```
@@ -46,8 +47,8 @@ output "docs_mcs_technative_eu_website_deploy_key_secret" {
 ## Credits
 
 This module was forked from [terraform-aws-website-secure](https://github.com/timmeinerzhagen/terraform-aws-website-secure) (MIT).
-Also code from [terraform-aws-website](https://github.com/bwindsor/terraform-aws-website) was included (MIT).
 
+Also code from [terraform-aws-website](https://github.com/bwindsor/terraform-aws-website) was included (MIT).
 
 <!-- BEGIN_TF_DOCS -->
 ## Providers
