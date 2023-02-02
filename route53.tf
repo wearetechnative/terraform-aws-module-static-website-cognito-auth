@@ -3,7 +3,7 @@ data "aws_route53_zone" "this" {
 }
 
 resource "aws_route53_record" "website-domain" {
-  name    = "${var.domain}"
+  name    = var.domain
   type    = "A"
   zone_id = data.aws_route53_zone.this.zone_id
 

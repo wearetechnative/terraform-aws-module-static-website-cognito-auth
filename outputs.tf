@@ -29,19 +29,19 @@ output "cognito_user_pool_id" {
 
 output "user_arn" {
   description = "the arn of the user that was created"
-  value = "${aws_iam_user.user.arn}"
+  value = aws_iam_user.user.arn
 }
 
 output "user_name" {
   description = "the name of the service account user that was created"
-  value = "${aws_iam_user.user.name}"
+  value = aws_iam_user.user.name
 }
 output "iam_access_key_id" {
-  value = "${aws_iam_access_key.user_keys.id}"
+  value = aws_iam_access_key.user_keys.id
 }
 
 output "iam_access_key_secret" {
-  value = "${aws_iam_access_key.user_keys.secret}"
+  value = aws_iam_access_key.user_keys.secret
 }
 
 

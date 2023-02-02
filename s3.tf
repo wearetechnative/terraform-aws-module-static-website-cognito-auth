@@ -44,11 +44,11 @@ data "aws_iam_policy_document" "s3_policy" {
 }
 
 resource "aws_iam_user" "user" {
-  name = "${var.deploy_user_name}"
+  name = var.deploy_user_name
 }
 
 resource "aws_iam_access_key" "user_keys" {
-  user = "${aws_iam_user.user.name}"
+  user = aws_iam_user.user.name
 }
 
 resource "aws_s3_bucket_policy" "bucket_policy_web" {
