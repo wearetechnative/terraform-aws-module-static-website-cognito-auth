@@ -1,4 +1,4 @@
-# Terraform AWS Static Website Cognito Auth ![](https://img.shields.io/github/workflow/status/TechNative-B-V/terraform-aws-static-website-cognito-auth/Lint?style=plastic)
+# Terraform AWS Static Website Cognito Auth ![](https://img.shields.io/github/actions/workflow/status/TechNative-B-V/terraform-aws-static-website-cognito-auth/tflint.yaml)
 
 <!-- SHIELDS -->
 
