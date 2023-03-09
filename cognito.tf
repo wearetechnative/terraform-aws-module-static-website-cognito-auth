@@ -28,6 +28,8 @@ module "cognito-user-pool" {
       logout_urls                          = local.logout_urls
     },
   ]
+
+  string_schemas = var.string_schemas
 }
 
 
