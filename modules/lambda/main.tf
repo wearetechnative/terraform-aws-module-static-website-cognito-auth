@@ -28,6 +28,7 @@ data "archive_file" "archive" {
   type        = "zip"
   source_dir  = local.path
   output_path = "${local.path}.zip"
+  output_file_mode = "0666"
 
   depends_on = [
     local_file.function_configuration,
