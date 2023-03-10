@@ -13,7 +13,7 @@ terraform {
 }
 
 locals {
-    path = "${path.module}/../../external/cloudfront-authorization-at-edge/${var.function}"
+    path = "${path.module}/../../external/cloudfront-authorization-at-edge/${var.name}_${var.function}"
     path_function = "${local.path}/bundle.js"
     path_configuration = "${local.path}/configuration.json"
 }
@@ -28,6 +28,7 @@ data "archive_file" "archive" {
   type        = "zip"
   source_dir  = local.path
   output_path = "${local.path}.zip"
+  output_file_mode = "0666"
 
   depends_on = [
     local_file.function_configuration,

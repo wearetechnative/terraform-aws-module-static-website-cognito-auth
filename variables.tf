@@ -61,3 +61,15 @@ variable "deploy_user_name" {
   description = "the username of the deploy user"
   type        = string
 }
+
+variable "string_schemas" {
+  description = "String schemas to include"
+  type = list(object({
+    attribute_data_type = string
+    developer_only_attribute = bool
+    mutable = bool
+    name = string
+    required = bool
+  }))
+  default = []
+}
