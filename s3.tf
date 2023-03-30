@@ -18,6 +18,20 @@ module "website_bucket" {
   }
 }
 
+resource "aws_s3_bucket_policy" "bucket_policy_web" {
+  bucket = module.website_bucket.s3_bucket_id
+  policy = data.aws_iam_policy_document.s3_policies.json
+}
+
+data "aws_iam_policy_document" "s3_policies" {
+  source_policy_documents = concat([ data.aws_iam_policy_document.s3_policy.json ]
+  , var.bucket_policy_addition != null ? [jsonencode({
+      "Statement" : [for v in var.bucket_policy_addition.Statement : merge(v, { "Resource" : [for s in flatten(concat([v.Resource], [])) : replace(s, "<bucket>", module.website_bucket.s3_bucket_arn)] })]
+      "Version" : lookup(var.bucket_policy_addition, "Version", null) != null ? var.bucket_policy_addition.Version : "2012-10-17"
+    })] : []
+  )
+}
+
 data "aws_iam_policy_document" "s3_policy" {
   statement {
     actions   = ["s3:GetObject"]
@@ -49,9 +63,4 @@ resource "aws_iam_user" "user" {
 
 resource "aws_iam_access_key" "user_keys" {
   user = aws_iam_user.user.name
-}
-
-resource "aws_s3_bucket_policy" "bucket_policy_web" {
-  bucket = module.website_bucket.s3_bucket_id
-  policy = data.aws_iam_policy_document.s3_policy.json
 }

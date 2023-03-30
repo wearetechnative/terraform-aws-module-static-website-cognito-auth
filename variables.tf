@@ -73,3 +73,9 @@ variable "string_schemas" {
   }))
   default = []
 }
+
+variable "bucket_policy_addition" {
+  description = "Additional S3 policies in Terraform format. Can be derived using jsondecode(iam_policy_document..json)."
+  type = any
+  default = {}
+}
