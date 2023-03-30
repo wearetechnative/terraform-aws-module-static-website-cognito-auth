@@ -13,6 +13,8 @@ module "website_bucket" {
   block_public_acls       = true
   block_public_policy     = true
 
+   object_ownership = "BucketOwnerEnforced"
+
   versioning = {
     enabled = true
   }
