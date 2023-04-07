@@ -13,9 +13,9 @@ terraform {
 }
 
 locals {
-    path = "${path.module}/../../external/cloudfront-authorization-at-edge/${var.name}_${var.function}"
-    path_function = "${local.path}/bundle.js"
-    path_configuration = "${local.path}/configuration.json"
+  path = "${path.module}/../../external/cloudfront-authorization-at-edge/${var.function}"
+  path_function = "${local.path}/bundle.js"
+  path_configuration = "${local.path}/configuration.json"
 }
 
 
