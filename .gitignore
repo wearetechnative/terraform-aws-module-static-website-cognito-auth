@@ -27,5 +27,13 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
-.temp.html 
+.temp.html
 .temp.seed
+
+external/cloudfront-authorization-at-edge/check-auth/configuration.json
+external/cloudfront-authorization-at-edge/http-headers/configuration.json
+external/cloudfront-authorization-at-edge/parse-auth/configuration.json
+external/cloudfront-authorization-at-edge/refresh-auth/configuration.json
+external/cloudfront-authorization-at-edge/rewrite-trailing-slash/configuration.json
+external/cloudfront-authorization-at-edge/sign-out/configuration.json
+
