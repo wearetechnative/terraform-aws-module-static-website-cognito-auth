@@ -14,6 +14,7 @@ module "website_bucket" {
   block_public_policy     = true
 
   object_ownership = "BucketOwnerEnforced"
+  control_object_ownership = true
 
   versioning = {
     enabled = true
