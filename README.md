@@ -29,6 +29,20 @@ module "docs_example_website" {
   cognito_refresh_token_validity  = 3650
   cognito_domain_prefix           = "login"
 
+  string_schemas = [
+    {
+      attribute_data_type = "String"
+      developer_only_attribute = false
+      mutable = true
+      name = "office365tn"
+      required = false
+      string_attribute_constraints = {
+        min_length = 1
+        max_length = 256
+      }
+    }
+  ]
+
   providers = {
     aws.us-east-1: aws.us-east-1
   }
