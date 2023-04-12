@@ -58,7 +58,6 @@ EOF
     }),
     mode = string,
     httpHeaders = object({
-      Content-Security-Policy   = string,
       Strict-Transport-Security = string,
       Referrer-Policy           = string,
       X-XSS-Protection          = string,
