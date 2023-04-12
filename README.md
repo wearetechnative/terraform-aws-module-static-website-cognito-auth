@@ -5,6 +5,8 @@
 This module implements a s3 bucket for hosting a static website behind a
 cognito login.
 
+WARNING THIS PROJECT IS WIP.
+
 [![](we-are-technative.png)](https://www.technative.nl)
 
 

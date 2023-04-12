@@ -57,6 +57,12 @@ variable "cognito_domain_prefix" {
 #  type        = bool
 #}
 
+variable "cognito_client_supported_identity_providers" {
+  description = "List of identity providers"
+  type        = list(string)
+  default     = ["COGNITO"]
+}
+
 variable "deploy_user_name" {
   description = "the username of the deploy user"
   type        = string

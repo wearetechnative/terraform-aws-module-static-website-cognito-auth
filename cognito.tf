@@ -3,7 +3,6 @@ locals {
   logout_urls   = concat(["https://${var.domain}${var.cognito_path_logout}"], formatlist("%s${var.cognito_path_logout}", var.cognito_additional_redirects))
 }
 
-
 module "cognito-user-pool" {
   source  = "lgallard/cognito-user-pool/aws"
   version = "0.20.1"
@@ -15,10 +14,11 @@ module "cognito-user-pool" {
   admin_create_user_config_email_subject = "You have a new account for ${var.domain}"
   admin_create_user_config_email_message = "<p>We created a new account for you to access <a href='https://${var.domain}'>${var.domain}</a>.</p><p>Login with username <strong>{username}</strong> and <strong>{####}</strong> as password. After you have logged in for the first time you must set a new password.</p>"
 
+  # TODO MAKE VAR
   clients = [
     {
       name                         = "${var.name}-client"
-      supported_identity_providers = ["COGNITO"]
+      supported_identity_providers = var.cognito_client_supported_identity_providers
 
       generate_secret                      = true
       allowed_oauth_flows_user_pool_client = true
@@ -31,5 +31,3 @@ module "cognito-user-pool" {
 
   string_schemas = var.string_schemas
 }
-
-
