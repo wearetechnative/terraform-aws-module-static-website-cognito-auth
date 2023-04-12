@@ -3,6 +3,9 @@ locals {
     ["check-auth", "http-headers", "parse-auth", "refresh-auth", "rewrite-trailing-slash", "sign-out"]
   )
 }
+
+# WARNING this line has been removed:
+# "Content-Security-Policy": "default-src 'none'; img-src 'self'; script-src 'self' https://code.jquery.com https://stackpath.bootstrapcdn.com; style-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com; object-src 'none'; connect-src 'self' https://*.amazonaws.com https://*.amazoncognito.com",
 module "lambda_function" {
   for_each = local.functions
 
@@ -23,7 +26,6 @@ module "lambda_function" {
   "cookieSettings": { "idToken": null, "accessToken": null, "refreshToken": null, "nonce": null },
   "mode": "spaMode",
   "httpHeaders": {
-      "Content-Security-Policy": "default-src 'none'; img-src 'self'; script-src 'self' https://code.jquery.com https://stackpath.bootstrapcdn.com; style-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com; object-src 'none'; connect-src 'self' https://*.amazonaws.com https://*.amazoncognito.com",
       "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
       "Referrer-Policy": "same-origin",
       "X-XSS-Protection": "1; mode=block",

@@ -27,7 +27,6 @@ variable "configuration" {
     }
     mode = "spaMode",
     httpHeaders = {
-        Content-Security-Policy   = "default-src 'none'; img-src 'self'; script-src 'self' https://code.jquery.com https://stackpath.bootstrapcdn.com; style-src 'self' 'unsafe-inline' https://stackpath.bootstrapcdn.com; object-src 'none'; connect-src 'self' https://*.amazonaws.com https://*.amazoncognito.com"
         Strict-Transport-Security = "max-age=31536000; includeSubdomains; preload"
         Referrer-Policy           = "same-origin"
         X-XSS-Protection          = "1; mode=block"
