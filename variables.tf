@@ -76,6 +76,10 @@ variable "string_schemas" {
     mutable = bool
     name = string
     required = bool
+    string_attribute_constraints = object({
+      min_length = number
+      max_length = number
+    })
   }))
   default = []
 }
