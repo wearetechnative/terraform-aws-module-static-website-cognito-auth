@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.3.4 - 27 July 2023
+- restore lambda zips again, not working `:(`
+
 ## v0.3.3 - 27 July 2023
 - make lambda build static to prevent drift
 
