@@ -48,7 +48,7 @@ module "lambda_function" {
 
   create_package         = false
   #local_existing_package = "${local.path}.zip"
-  local_existing_package = "../external-lambda.zip"
+  local_existing_package = "${path.module}/../../external-lambda.zip"
 
   attach_tracing_policy = true
   tracing_mode          = "Active"
