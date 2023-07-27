@@ -26,7 +26,7 @@ resource "local_file" "function_configuration" {
 data "archive_file" "archive" {
   type        = "zip"
   source_dir  = local.path
-  output_path = "${local.path}.zip"
+  output_path = "${local.path}-v1.zip"
   output_file_mode = "0666"
 
   depends_on = [
@@ -46,8 +46,7 @@ module "lambda_function" {
   lambda_at_edge = true
 
   create_package         = false
-  local_existing_package = "${local.path}.zip"
-  #local_existing_package = "${path.module}/../../external-lambda.zip"
+  local_existing_package = "${local.path}-v1.zip"
 
   attach_tracing_policy = true
   tracing_mode          = "Active"
