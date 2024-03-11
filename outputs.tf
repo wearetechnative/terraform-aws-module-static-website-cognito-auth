@@ -44,4 +44,6 @@ output "iam_access_key_secret" {
   value = aws_iam_access_key.user_keys.secret
 }
 
-
+output "acm_certificate_domain_validation_options" {
+  value = module.acm.acm_certificate_domain_validation_options
+}
