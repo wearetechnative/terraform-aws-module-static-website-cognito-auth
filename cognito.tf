@@ -1,5 +1,5 @@
 locals {
-  callback_urls = concat(["https://${var.domain}${var.cognito_path_parse_auth}"], formatlist("%s${var.cognito_path_parse_auth}", var.cognito_additional_redirects))
+  callback_urls = concat(["https://${var.domain}${var.cognito_path_parse_auth}"],"https://docs.nbdbiblion.technative.cloud/Prowler/prowler","https://docs.nbdbiblion.technative.cloud/Prowler/prowler_auth", formatlist("%s${var.cognito_path_parse_auth}", var.cognito_additional_redirects))
   logout_urls   = concat(["https://${var.domain}${var.cognito_path_logout}"], formatlist("%s${var.cognito_path_logout}", var.cognito_additional_redirects))
 }
 
@@ -22,7 +22,7 @@ module "cognito-user-pool" {
 
       generate_secret                      = true
       allowed_oauth_flows_user_pool_client = true
-      allowed_oauth_flows                  = ["code"]
+      allowed_oauth_flows                  = ["code","implicit"]
       allowed_oauth_scopes                 = ["openid"]
       callback_urls                        = local.callback_urls
       logout_urls                          = local.logout_urls
