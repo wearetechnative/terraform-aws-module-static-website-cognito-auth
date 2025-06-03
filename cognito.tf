@@ -1,5 +1,5 @@
 locals {
-  callback_urls = concat(["https://${var.domain}${var.cognito_path_parse_auth}"],"https://docs.nbdbiblion.technative.cloud/Prowler/prowler","https://docs.nbdbiblion.technative.cloud/Prowler/prowler_auth", formatlist("%s${var.cognito_path_parse_auth}", var.cognito_additional_redirects))
+  callback_urls = concat(["https://${var.domain}${var.cognito_path_parse_auth}","https://docs.nbdbiblion.technative.cloud/Prowler/prowler","https://docs.nbdbiblion.technative.cloud/Prowler/prowler_auth"], formatlist("%s${var.cognito_path_parse_auth}", var.cognito_additional_redirects))
   logout_urls   = concat(["https://${var.domain}${var.cognito_path_logout}"], formatlist("%s${var.cognito_path_logout}", var.cognito_additional_redirects))
 }
 
