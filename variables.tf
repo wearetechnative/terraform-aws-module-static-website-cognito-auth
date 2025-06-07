@@ -89,3 +89,9 @@ variable "bucket_policy_addition" {
   type = any
   default = null
 }
+
+variable "cognito_additional_callbacks" {
+  description = "Additional URLs to allow cognito callbacks to"
+  type        = list(string)
+  default     = []
+}
