@@ -40,7 +40,7 @@ module "lambda_function" {
 
   function_name = "${var.name}-${var.function}"
   handler       = "bundle.handler"
-  runtime       = "nodejs18.x"
+  runtime       = "nodejs22.x"
 
   publish        = true
   lambda_at_edge = true
