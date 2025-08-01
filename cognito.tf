@@ -5,7 +5,7 @@ locals {
 
 module "cognito-user-pool" {
   source  = "lgallard/cognito-user-pool/aws"
-  version = "0.20.1"
+  version = "1.7.0"
 
   user_pool_name         = "${var.name}-userpool"
   domain                 = "${var.cognito_domain_prefix}.${aws_route53_record.website-domain.name}"

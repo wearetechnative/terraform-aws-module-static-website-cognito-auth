@@ -4,7 +4,7 @@ resource "random_pet" "this" {
 
 module "website_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
-  version = "3.6.0"
+  version = "5.2.0"
 
   bucket                  = "${var.domain}-${random_pet.this.id}"
   force_destroy           = true
@@ -17,7 +17,7 @@ module "website_bucket" {
   control_object_ownership = true
 
   versioning = {
-    enabled = true
+    status = true
   }
 }
 

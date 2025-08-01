@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 4.9.0, < 5.0.0"
+      version = ">= 4.9.0"
     }
     archive = {
       source  = "hashicorp/archive"
@@ -36,11 +36,11 @@ data "archive_file" "archive" {
 
 module "lambda_function" {
   source  = "terraform-aws-modules/lambda/aws"
-  version = "4.7.1"
+  version = "8.0.1"
 
   function_name = "${var.name}-${var.function}"
   handler       = "bundle.handler"
-  runtime       = "nodejs18.x"
+  runtime       = "nodejs22.x"
 
   publish        = true
   lambda_at_edge = true
@@ -48,7 +48,6 @@ module "lambda_function" {
   create_package         = false
   local_existing_package = "${local.path}-v1.zip"
 
-  attach_tracing_policy = true
   tracing_mode          = "Active"
 
   depends_on = [
