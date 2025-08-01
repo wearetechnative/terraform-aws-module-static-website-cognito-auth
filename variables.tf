@@ -94,3 +94,9 @@ variable "region" {
   description = "AWS Region"
   type = string
 }
+
+variable "cognito_additional_callbacks" {
+  description = "Additional URLs to allow cognito callbacks to"
+  type        = list(string)
+  default     = []
+}

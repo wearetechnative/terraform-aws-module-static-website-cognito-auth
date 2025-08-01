@@ -111,6 +111,7 @@ Also code from [terraform-aws-website](https://github.com/bwindsor/terraform-aws
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_bucket_policy_addition"></a> [bucket\_policy\_addition](#input\_bucket\_policy\_addition) | Additional S3 policies in Terraform format. Can be derived using jsondecode(iam\_policy\_document.json). | `any` | `null` | no |
+| <a name="input_cognito_additional_callbacks"></a> [cognito\_additional\_callbacks](#input\_cognito\_additional\_callbacks) | Additional URLs to allow cognito callbacks to | `list(string)` | `[]` | no |
 | <a name="input_cognito_additional_redirects"></a> [cognito\_additional\_redirects](#input\_cognito\_additional\_redirects) | Additional URLs to allow cognito redirects to | `list(string)` | `[]` | no |
 | <a name="input_cognito_client_supported_identity_providers"></a> [cognito\_client\_supported\_identity\_providers](#input\_cognito\_client\_supported\_identity\_providers) | List of identity providers | `list(string)` | <pre>[<br/>  "COGNITO"<br/>]</pre> | no |
 | <a name="input_cognito_domain_prefix"></a> [cognito\_domain\_prefix](#input\_cognito\_domain\_prefix) | The first part of the hosted UI login domain, as in https://[COGNITO_DOMAIN_PREFIX].[CUSTOM_DOMAIN]/ | `string` | `"login"` | no |
