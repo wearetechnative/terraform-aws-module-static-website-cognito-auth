@@ -89,3 +89,8 @@ variable "bucket_policy_addition" {
   type = any
   default = null
 }
+
+variable "region" {
+  description = "AWS Region"
+  type = string
+}
