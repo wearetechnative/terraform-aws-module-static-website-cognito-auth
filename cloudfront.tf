@@ -2,7 +2,7 @@
 
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "4.3.1"
+  version = "5.0.0"
 
   domain_name               = var.domain
   subject_alternative_names = ["*.${var.domain}"]
@@ -15,7 +15,7 @@ module "acm" {
 
 module "cloudfront" {
   source  = "terraform-aws-modules/cloudfront/aws"
-  version = "3.1.0"
+  version = "3.2.1"
 
   aliases = [var.domain]
 
