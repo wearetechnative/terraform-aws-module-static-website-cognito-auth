@@ -7,6 +7,7 @@ module "acm" {
   domain_name               = var.domain
   subject_alternative_names = ["*.${var.domain}"]
   zone_id                   = data.aws_route53_zone.this.id
+  validation_method         = "DNS"
 
   providers = {
     aws = aws.us-east-1
