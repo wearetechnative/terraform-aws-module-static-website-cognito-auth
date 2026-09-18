@@ -37,3 +37,7 @@ external/cloudfront-authorization-at-edge/refresh-auth/configuration.json
 external/cloudfront-authorization-at-edge/rewrite-trailing-slash/configuration.json
 external/cloudfront-authorization-at-edge/sign-out/configuration.json
 
+# Provider lock file.
+# Deliberately not committed in a reusable module: pinning providers here
+# would freeze what consumers resolve. In a root module the opposite holds.
+.terraform.lock.hcl
