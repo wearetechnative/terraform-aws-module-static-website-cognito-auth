@@ -13,7 +13,7 @@ module "website_bucket" {
   block_public_acls       = true
   block_public_policy     = true
 
-  object_ownership = "BucketOwnerEnforced"
+  object_ownership         = "BucketOwnerEnforced"
   control_object_ownership = true
 
   versioning = {
@@ -27,8 +27,8 @@ resource "aws_s3_bucket_policy" "bucket_policy_web" {
 }
 
 data "aws_iam_policy_document" "s3_policies" {
-  source_policy_documents = concat([ data.aws_iam_policy_document.s3_policy.json ]
-  , var.bucket_policy_addition != null ? [jsonencode({
+  source_policy_documents = concat([data.aws_iam_policy_document.s3_policy.json]
+    , var.bucket_policy_addition != null ? [jsonencode({
       "Statement" : [for v in var.bucket_policy_addition.Statement : merge(v, { "Resource" : [for s in flatten(concat([v.Resource], [])) : replace(s, "<bucket>", module.website_bucket.s3_bucket_arn)] })]
       "Version" : lookup(var.bucket_policy_addition, "Version", null) != null ? var.bucket_policy_addition.Version : "2012-10-17"
     })] : []
@@ -47,11 +47,11 @@ data "aws_iam_policy_document" "s3_policy" {
   }
 
   statement {
-    actions   = ["s3:*"]
+    actions = ["s3:*"]
     resources = [
-      "${module.website_bucket.s3_bucket_arn}",
+      module.website_bucket.s3_bucket_arn,
       "${module.website_bucket.s3_bucket_arn}/*"
-     ]
+    ]
 
     principals {
       type        = "AWS"
