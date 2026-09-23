@@ -21,16 +21,19 @@ variable "route53_zone_name" {
 
 variable "cognito_path_refresh_auth" {
   description = "Path relative to `custom_domain` to redirect to when a token refresh is required"
+  type        = string
   default     = "/refreshauth"
 }
 
 variable "cognito_path_logout" {
   description = "Path relative to custom_domain to redirect to after logging out"
+  type        = string
   default     = "/"
 }
 
 variable "cognito_path_parse_auth" {
   description = "Path relative to custom_domain to redirect to upon successful authentication"
+  type        = string
   default     = "/parseauth"
 }
 
@@ -42,6 +45,7 @@ variable "cognito_additional_redirects" {
 
 variable "cognito_refresh_token_validity" {
   description = "Time until the refresh token expires and the user will be required to log in again"
+  type        = number
   default     = 3650
 }
 
